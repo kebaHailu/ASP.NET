@@ -11,7 +11,7 @@ obj/
 .suo<br>
 *.testlog<br>
 *.user<br>
-
+*.sln
 \# directories<br>
 **/Release
 .sln
