@@ -9,6 +9,8 @@ public class Student
     public int ID { get; set; }
     public string Name { get; set; }
     public int Age { get; set; }
+    public double Grade { get; set; }
+    
 }
 
 public class StudentManager<T> where T : Student
@@ -42,7 +44,7 @@ public class StudentManager<T> where T : Student
         {
             
             
-            Console.WriteLine($"|| {student.ID}. {student.Name} Age:{student.Age} ");
+            Console.WriteLine($"|| {student.ID}. {student.Name} Grade:{student.Grade} Age:{student.Age} ");
             
         }
         Console.WriteLine("=========================================");
@@ -102,10 +104,13 @@ public class Program
                     string name = Console.ReadLine();
                     Console.Write("Enter Student Age: ");
                     
+                    
                     int age = Convert.ToInt32(Console.ReadLine()); 
                     if (age < 0 || age > 100) { Console.WriteLine("please Enter valid Age !"); break;}
+                    Console.Write("Enter Student Grade: ");
+                    double grade = Convert.ToDouble(Console.ReadLine());
                     
-                    Student student = new Student { ID = id, Name = name, Age = age };
+                    Student student = new Student { ID = id, Name = name, Age = age, Grade=grade };
                     studentManager.AddStudent(student);
                     Console.WriteLine("Student added successfully."); }
                     catch (FormatException ex){Console.WriteLine("Invalid Input Type"+ex);}
@@ -117,7 +122,7 @@ public class Program
                     if (searchedStudentByName != null)
                     {
                         Console.WriteLine("==========---- Student Found ----===========");
-                        Console.WriteLine($"|| {searchedStudentByName.ID}. {searchedStudentByName.Name} Age:{searchedStudentByName.Age} ||");
+                        Console.WriteLine($"|| {searchedStudentByName.ID}. {searchedStudentByName.Name} Grade:{searchedStudentByName.Grade} Age:{searchedStudentByName.Age} ||");
                         Console.WriteLine("==========-----------------------===========");                    }
                     else
                     {
@@ -131,7 +136,7 @@ public class Program
                     Student searchedStudentByID = studentManager.SearchStudentByID(searchID);
                     if (searchedStudentByID != null)
                     {   Console.WriteLine("==========---- Student Found ----===========");
-                        Console.WriteLine($"|| {searchedStudentByID.ID}. {searchedStudentByID.Name} Age:{searchedStudentByID.Age} ||");
+                        Console.WriteLine($"|| {searchedStudentByID.ID}. {searchedStudentByID.Name} Grade:{searchedStudentByID.Grade}Age:{searchedStudentByID.Age} ||");
                         Console.WriteLine("==========-----------------------===========");
                     }
                     else
@@ -155,7 +160,7 @@ public class Program
                     foreach (Student deserializedStudent in deserializedStudents)
 
                     {   
-                        Console.WriteLine($"|| {deserializedStudent.ID}. {deserializedStudent.Name}  Age:{deserializedStudent.Age} ");
+                        Console.WriteLine($"|| {deserializedStudent.ID}. {deserializedStudent.Name} Grade:{deserializedStudent.Grade} Age:{deserializedStudent.Age} ");
                         // Add student to the list if the student is not in the list
                         Student searchStudent = studentManager.SearchStudentByName(deserializedStudent.Name);
                     if (searchStudent == null)
