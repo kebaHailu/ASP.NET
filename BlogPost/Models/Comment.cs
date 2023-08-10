@@ -10,7 +10,11 @@ namespace BlogPost.Models
     {
         public int Post_Id { get; set;}
 
-        public virtual Post Post {get; set; }
+        public virtual Post? Post {get; set; }
+
+        public Comment(){
+            
+        }
         
     }
 }

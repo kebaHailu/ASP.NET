@@ -175,6 +175,7 @@ public class Program
                 case "7":
                     Console.WriteLine("Exiting the program....");
                     return;
+            
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;

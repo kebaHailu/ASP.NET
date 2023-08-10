@@ -1,7 +1,7 @@
 # Binaries
 bin/
 obj/
-*.csproj
+
 \# file types<br>
 *.cache<br>
 *.dtbcache.v2<br>
